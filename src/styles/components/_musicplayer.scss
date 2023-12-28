@@ -1,16 +1,22 @@
+.music-content-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 .music-content-player {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
     height: 100vh;
-    background-color: #f8f8f8;
+    background-color: #26292D;
+    border-radius: 50px 0 0 50px;
 }
   
 .music-player {
-    width: 300px;
+    width: 900px;
     padding: 20px;
-    background-color: #26292D;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
 }
@@ -27,6 +33,14 @@
     border-radius: 50%;
     object-fit: cover;
     margin-top: 10px;
+}
+
+.music-border, .control-border {
+    border: 1px solid #53565a;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 700px;
 }
   
 .progress-bar {
@@ -62,5 +76,9 @@
   
 .music-control i:hover {
     color: #527bcc;
+}
+
+.music-control input[type="range"] {
+    background-color: transparent;
 }
   

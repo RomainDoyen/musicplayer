@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient('https://klvqrilujppcrjpijrme.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtsdnFyaWx1anBwY3JqcGlqcm1lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDM3MDA0MDYsImV4cCI6MjAxOTI3NjQwNn0.QtBesgwuMoldjeGqSGN-clGAHNMmuhEs7cj5xXJuX0k');
+import useClient from '../hooks/sb-hooks';
 
 const MusicPlayer = () => {
+  const supabase = useClient();
   const [songs, setSongs] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -75,48 +74,54 @@ const MusicPlayer = () => {
     }
 
   return (
-    <div className='music-content-player'>
-      <div className='music-player'>
-        <div className='music-info'>
-          <h4>{songs.length > 0 && songs[currentSongIndex].title} - {songs.length > 0 && songs[currentSongIndex].artist}</h4>
+    <div className='music-content-container'>
+        <div className='music-content-player'>
+            <div className='music-player'>
+                <div className="music-border">
+                    <div className='music-info'>
+                        <h4>{songs.length > 0 && songs[currentSongIndex].title} - {songs.length > 0 && songs[currentSongIndex].artist}</h4>
+                    </div>
+                    <div className='music-img'>
+                        {songs.length > 0 && (
+                            <img src={songs[currentSongIndex]?.image} alt={songs.title} />
+                        )}
+                    </div>
+                </div>
+                <div className="control-border">
+                    <div className="progress-bar" onClick={handleProgressClick}>
+                        <div className="progress" style={{ width: `${progress}%` }}></div>
+                    </div>
+                    <div className='duration'>
+                        {formatTime(currentTime)} / {formatTime(duration)}
+                    </div>
+                    <audio
+                        ref={audioRef}
+                        src={songs.length > 0 && songs[currentSongIndex].url}
+                        onTimeUpdate={handleTimeUpdate}
+                        onLoadedData={handleDuration}
+                    ></audio>
+                    <div className='music-control'>
+                        <i className='fas fa-backward' onClick={handlePrevSong}></i>
+                        {isPlaying ? (
+                            <i className='fas fa-pause' onClick={togglePlay}></i>
+                        ) : (
+                            <i className='fas fa-play' onClick={togglePlay}></i>
+                        )}
+                        <i className='fas fa-forward' onClick={handleNextSong}></i>
+                        {
+                            <input
+                                type="range"
+                                min={0}
+                                max={1}
+                                step={0.01}
+                                value={voulume}
+                                onChange={handleVolumeChange}
+                            />
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className='music-img'>
-        {songs.length > 0 && (
-            <img src={songs[currentSongIndex]?.image} alt={songs.title} />
-        )}
-        </div>
-        <div className="progress-bar" onClick={handleProgressClick}>
-          <div className="progress" style={{ width: `${progress}%` }}></div>
-        </div>
-        <div className='duration'>
-          {formatTime(currentTime)} / {formatTime(duration)}
-        </div>
-        <audio
-          ref={audioRef}
-          src={songs.length > 0 && songs[currentSongIndex].url}
-          onTimeUpdate={handleTimeUpdate}
-          onLoadedData={handleDuration}
-        ></audio>
-        <div className='music-control'>
-          <i className='fas fa-backward' onClick={handlePrevSong}></i>
-          {isPlaying ? (
-            <i className='fas fa-pause' onClick={togglePlay}></i>
-          ) : (
-            <i className='fas fa-play' onClick={togglePlay}></i>
-          )}
-          <i className='fas fa-forward' onClick={handleNextSong}></i>
-          {
-                <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    value={voulume}
-                    onChange={handleVolumeChange}
-                />
-          }
-        </div>
-      </div>
     </div>
   );
 };
