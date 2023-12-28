@@ -21,7 +21,7 @@ async function main() {
             artist: 'Free Test Data',
             image: 'https://freetestdata.com/wp-content/uploads/2022/02/Free_Test_Data_128KB_JPG.jpg',
             url: 'https://freetestdata.com/wp-content/uploads/2021/09/Free_Test_Data_100KB_MP3.mp3',
-            duration: 243,
+            duration: 4278,
             createdAt: new Date(),
             updatedAt: new Date(),
         },

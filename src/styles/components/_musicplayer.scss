@@ -9,7 +9,7 @@
 .music-player {
     width: 300px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #26292D;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
@@ -18,7 +18,7 @@
 .music-info h4 {
     margin: 0;
     font-size: 16px;
-    color: #333;
+    color: #FFFFFF;
 }
   
 .music-img img {
@@ -32,7 +32,7 @@
 .progress-bar {
     margin-top: 20px;
     height: 10px;
-    background-color: #eee;
+    background-color: #424242;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -40,13 +40,19 @@
 .progress {
     height: 100%;
     width: 50%; /* Ajuste la largeur de la barre de progression selon tes besoins */
-    background-color: #4caf50; /* Couleur de la barre de progression */
+    background-color: #6699FF; /* Couleur de la barre de progression */
+}
+
+.duration {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #FFFFFF;
 }
   
 .music-control {
     margin-top: 20px;
     font-size: 24px;
-    color: #333;
+    color: #6699FF;
 }
   
 .music-control i {
@@ -55,6 +61,6 @@
 }
   
 .music-control i:hover {
-    color: #4caf50;
+    color: #527bcc;
 }
   

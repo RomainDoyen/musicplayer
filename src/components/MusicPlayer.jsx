@@ -10,6 +10,7 @@ const MusicPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [voulume, setVolume] = useState(0.5);
 
   const audioRef = useRef(null);
 
@@ -67,6 +68,12 @@ const MusicPlayer = () => {
     setCurrentSongIndex((prevIndex) => (prevIndex - 1 + songs.length) % songs.length);
   };
 
+    const handleVolumeChange = (e) => {
+        const value = e.target.value;
+        setVolume(value);
+        audioRef.current.volume = value;
+    }
+
   return (
     <div className='music-content-player'>
       <div className='music-player'>
@@ -98,6 +105,16 @@ const MusicPlayer = () => {
             <i className='fas fa-play' onClick={togglePlay}></i>
           )}
           <i className='fas fa-forward' onClick={handleNextSong}></i>
+          {
+                <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    value={voulume}
+                    onChange={handleVolumeChange}
+                />
+          }
         </div>
       </div>
     </div>
