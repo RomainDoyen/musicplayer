@@ -74,7 +74,9 @@ const MusicPlayer = () => {
           <h4>{songs.length > 0 && songs[currentSongIndex].title} - {songs.length > 0 && songs[currentSongIndex].artist}</h4>
         </div>
         <div className='music-img'>
-          <img src={songs.length > 0 && songs[currentSongIndex].image} alt='' />
+        {songs.length > 0 && (
+            <img src={songs[currentSongIndex]?.image} alt={songs.title} />
+        )}
         </div>
         <div className="progress-bar" onClick={handleProgressClick}>
           <div className="progress" style={{ width: `${progress}%` }}></div>
