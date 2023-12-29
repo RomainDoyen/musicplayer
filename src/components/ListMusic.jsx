@@ -25,7 +25,10 @@ const ListMusic = () => {
                 {songs.map((song, index) => (
                     <div className="song" key={index}>
                         <div className="song-img">
-                            <img src={song.image} alt={song.title} />
+                            <img src={song.image} alt={song.title} onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.src = 'song_cover.png';
+                              }} />
                         </div>
                         <div className="song-info">
                             <h3>{song.title}</h3>

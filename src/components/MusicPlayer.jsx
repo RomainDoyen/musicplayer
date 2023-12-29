@@ -82,10 +82,17 @@ const MusicPlayer = () => {
                         <h4>{songs.length > 0 && songs[currentSongIndex].title} - {songs.length > 0 && songs[currentSongIndex].artist}</h4>
                     </div>
                     <div className='music-img'>
-                        {songs.length > 0 && (
-                            <img src={songs[currentSongIndex]?.image} alt={songs.title} />
-                        )}
-                    </div>
+                      {songs.length > 0 && (
+                          <img
+                              src={songs[currentSongIndex]?.image}
+                              alt={songs.title}
+                              onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.src = 'song_cover.png';
+                              }}
+                          />
+                      )}
+                  </div>
                 </div>
                 <div className="control-border">
                     <div className="progress-bar" onClick={handleProgressClick}>

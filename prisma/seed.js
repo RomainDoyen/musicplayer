@@ -26,6 +26,18 @@ async function main() {
             updatedAt: new Date(),
         },
     })
+
+    await prisma.music.create({
+        data: {
+            title: 'Duplate Riddim 3 instrumental 2k16',
+            artist: 'Bcr Lrts',
+            image: '',
+            url: '../music/[ Dancehall ] Duplate Riddim 3 Instrumental 2k16 ( By Bcr Lrts ).mp3',
+            duration: 0,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+        },
+    })
 }
 
 main() 

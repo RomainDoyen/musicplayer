@@ -8,15 +8,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
     height: 100vh;
-    background-color: #26292D;
-    border-radius: 50px 0 0 50px;
+    width: 100%;
+    // background-color: #26292D;
+    background-color: #121212;
+    // border-radius: 50px 0 0 50px;
 }
   
 .music-player {
-    width: 900px;
-    padding: 20px;
+    // width: 900px;
+    // padding: 20px;
     border-radius: 8px;
     text-align: center;
 }
@@ -38,9 +39,16 @@
 .music-border, .control-border {
     border: 1px solid #53565a;
     border-radius: 10px;
+    background-color: #26292D;
     margin: 10px;
     padding: 20px;
     width: 700px;
+    transition: all 0.3s ease-out;
+}
+
+.music-border:hover {
+    cursor: pointer;
+    background-color: #373A3D;
 }
   
 .progress-bar {
@@ -53,8 +61,13 @@
   
 .progress {
     height: 100%;
-    width: 50%; /* Ajuste la largeur de la barre de progression selon tes besoins */
-    background-color: #6699FF; /* Couleur de la barre de progression */
+    width: 50%; 
+    background-color: #6699FF; 
+}
+
+.progress:hover {
+    cursor: pointer;
+    background-color: #527bcc;
 }
 
 .duration {
