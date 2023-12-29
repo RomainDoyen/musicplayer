@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import useClient from '../hooks/sb-hooks';
 
 const Menu = () => {
@@ -21,14 +22,12 @@ const Menu = () => {
   }, []);
 
   useEffect(() => {
-    // Filter songs based on the search term only when there is a search term
     if (search.trim() !== '') {
       const filteredResults = songs.filter((song) =>
         song.title.toLowerCase().includes(search.toLowerCase())
       );
       setFilteredSongs(filteredResults);
     } else {
-      // Clear filtered songs when there is no search term
       setFilteredSongs([]);
     }
   }, [search, songs]);
@@ -48,18 +47,20 @@ const Menu = () => {
           </button>
           <div className="result-search">
             {filteredSongs.map((song) => (
-              <div className="song-search" key={song.id}>
-                <div className="song-img">
-                    <img src={song.image} alt={song.title} onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = 'song_cover.png';
-                    }}/>
+              <Link to={`/musicdetail/${song.id}`} className="song-search-link" key={song.id}>
+                <div className="song-search" key={song.id}>
+                  <div className="song-img">
+                      <img src={song.image} alt={song.title} onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = 'song_cover.png';
+                      }}/>
+                  </div>
+                  <div className="song-info">
+                      <div className="song-title">{song.title}</div>
+                      <div className="song-artist">{song.artist}</div>
+                  </div>
                 </div>
-                <div className="song-info">
-                    <div className="song-title">{song.title}</div>
-                    <div className="song-artist">{song.artist}</div>
-                </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,3 +1,5 @@
+@use '../colors/globals';
+
 .songs-content {
     display: flex;
     justify-content: center;
@@ -6,11 +8,10 @@
 }
 
 .song-border {
-    border: 1px solid #373A3D;
+    border: 1px solid globals.$song-border-border;
     border-radius: 10px;
     padding: 20px;
-    background-color: #121212;
-    // width: 80%;
+    background-color: globals.$song-border-background-color;
     width: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -21,7 +22,7 @@
 .song {
     display: flex;
     align-items: center;
-    background-color: #26292D;
+    background-color: globals.$song-background-color;
     padding: 10px;
     border-radius: 8px;
     transition: all 0.3s ease-out;
@@ -29,7 +30,7 @@
 
 .song:hover {
     cursor: pointer;
-    background-color: #373A3D;
+    background-color: globals.$song-hover-background-color;
 }
 
 .song-img img {
@@ -41,7 +42,7 @@
 
 .song-info {
     margin-left: 20px;
-    color: #FFFFFF;
+    color: globals.$song-info-color;
 }
 
 .song-info h3 {
@@ -52,5 +53,15 @@
 .song-info h4 {
     margin: 0;
     font-size: 14px;
-    color: #9F9F9F;
+    color: globals.$song-info-h4-color;
+}
+
+.song-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.song-link:hover {
+    text-decoration: none;
+    color: inherit;
 }

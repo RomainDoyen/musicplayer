@@ -1,3 +1,5 @@
+@use '../colors/globals';
+
 .menu-content {
     display: flex;
     justify-content: flex-start;
@@ -8,11 +10,10 @@
 }
 
 .menu-border {
-    border: 1px solid #373A3D;
+    border: 1px solid globals.$menu-border;
     border-radius: 10px;
     padding: 20px;
-    background-color: #121212;
-    // width: 80%;
+    background-color: globals.$menu-background-color;
     width: 400px;
     display: flex;
     flex-wrap: wrap;
@@ -23,21 +24,15 @@
 .menu {
     display: flex;
     align-items: center;
-    // background-color: #26292D;
     padding: 10px;
     border-radius: 8px;
     transition: all 0.3s ease-out;
     width: 100%;
 }
 
-// .menu:hover {
-//     cursor: pointer;
-//     background-color: #373A3D;
-// }
-
 .menu input {
     margin-left: 10px;
-    color: #fff;
+    color: globals.$menu-input-color;
     background-color: transparent;
     border: none;
     outline: none;
@@ -49,7 +44,7 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: #797979;
+    color: globals.$menu-button-color;
     font-size: 16px;
     margin-left: 10px;
     cursor: pointer;
@@ -57,12 +52,11 @@
 
 .result-search {
     position: absolute;
-    top: 100%;
+    top: 85%;
     left: 20px;
-    // width: 100%;
     width: 400px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: globals.$result-search-background-color;
+    box-shadow: 0 4px 8px 0 globals.$result-search-box-shadow;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -72,16 +66,26 @@
     align-items: center;
     padding: 10px;
     transition: all 0.3s ease-out;
-    border-bottom: 1px solid #4d4c4c;
-    background-color: #26292D;
-    color: #FFFFFF;
+    border-bottom: 1px solid globals.$song-search-border-bottom;
+    background-color: globals.$song-search-background-color;
+    color: globals.$song-search-color;
 }
 
 .song-search:hover {
     cursor: pointer;
-    background-color: #373A3D;
+    background-color: globals.$song-search-hover-background-color;
 }
 
 .song-artist {
-    color: #9F9F9F;
+    color: globals.$song-artist-color;
+}
+
+.song-search-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.song-search-link:hover {
+    text-decoration: none;
+    color: inherit;
 }

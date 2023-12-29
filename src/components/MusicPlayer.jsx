@@ -10,6 +10,7 @@ const MusicPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [voulume, setVolume] = useState(0.5);
+  const [isShuffle, setIsShuffle] = useState(false);
 
   const audioRef = useRef(null);
 
@@ -33,6 +34,11 @@ const MusicPlayer = () => {
       audioRef.current.pause();
     }
   }, [isPlaying]);
+
+  const handleShuffle = () => {
+      const randomIndex = Math.floor(Math.random() * songs.length);
+      setCurrentSongIndex(randomIndex);
+  };
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -81,7 +87,7 @@ const MusicPlayer = () => {
                     <div className='music-info'>
                         <h4>{songs.length > 0 && songs[currentSongIndex].title} - {songs.length > 0 && songs[currentSongIndex].artist}</h4>
                     </div>
-                    <div className='music-img'>
+                    <div className={`music-img ${isPlaying ? 'rotate' : ''}`}>
                       {songs.length > 0 && (
                           <img
                               src={songs[currentSongIndex]?.image}
@@ -108,6 +114,7 @@ const MusicPlayer = () => {
                         onLoadedData={handleDuration}
                     ></audio>
                     <div className='music-control'>
+                        <i className={`fa-solid fa-shuffle ${isShuffle ? 'active' : ''}`} onClick={handleShuffle}></i>
                         <i className='fas fa-backward' onClick={handlePrevSong}></i>
                         {isPlaying ? (
                             <i className='fas fa-pause' onClick={togglePlay}></i>

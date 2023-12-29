@@ -1,5 +1,4 @@
-$color-text: #333;
-$color-bg: #fff;
+@use '../styles/colors/globals';
 
 * {
     box-sizing: border-box;
@@ -11,6 +10,6 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.5;
-    color: $color-text;
-    background-color: $color-bg;
+    color: globals.$color-text;
+    background-color: globals.$color-bg;
 }

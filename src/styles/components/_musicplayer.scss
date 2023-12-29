@@ -1,3 +1,5 @@
+@use '../colors/globals';
+
 .music-content-container {
     display: flex;
     justify-content: flex-end;
@@ -10,24 +12,38 @@
     align-items: center;
     height: 100vh;
     width: 100%;
-    // background-color: #26292D;
-    background-color: #121212;
-    // border-radius: 50px 0 0 50px;
+    background-color: globals.$music-content-player;
 }
-  
+
 .music-player {
-    // width: 900px;
-    // padding: 20px;
     border-radius: 8px;
     text-align: center;
 }
-  
+
 .music-info h4 {
     margin: 0;
     font-size: 16px;
-    color: #FFFFFF;
+    color: globals.$music-info-h4-color;
 }
-  
+
+.music-img {
+    transition: transform 0.5s ease-in;
+    transform-origin: center;
+}
+
+.rotate {
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
 .music-img img {
     width: 100px;
     height: 100px;
@@ -37,9 +53,9 @@
 }
 
 .music-border, .control-border {
-    border: 1px solid #53565a;
+    border: 1px solid globals.$music-border_control-border_border;
     border-radius: 10px;
-    background-color: #26292D;
+    background-color: globals.$music-border_control-border_background-color;
     margin: 10px;
     padding: 20px;
     width: 700px;
@@ -48,13 +64,13 @@
 
 .music-border:hover {
     cursor: pointer;
-    background-color: #373A3D;
+    background-color: globals.$music-border-hover-background-color;
 }
   
 .progress-bar {
     margin-top: 20px;
     height: 10px;
-    background-color: #424242;
+    background-color: globals.$progress-bar-background-color;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -62,36 +78,35 @@
 .progress {
     height: 100%;
     width: 50%; 
-    background-color: #6699FF; 
+    background-color: globals.$progress-background-color; 
 }
 
 .progress:hover {
     cursor: pointer;
-    background-color: #527bcc;
+    background-color: globals.$progress-hover-background-color;
 }
 
 .duration {
     margin-top: 10px;
     font-size: 14px;
-    color: #FFFFFF;
+    color: globals.$duration-color;
 }
-  
+
 .music-control {
     margin-top: 20px;
     font-size: 24px;
-    color: #6699FF;
+    color: globals.$music-control-color;
 }
-  
+
 .music-control i {
     margin: 0 10px;
     cursor: pointer;
 }
-  
+
 .music-control i:hover {
-    color: #527bcc;
+    color: globals.$music-control-color-i-hover;
 }
 
 .music-control input[type="range"] {
     background-color: transparent;
 }
-  
