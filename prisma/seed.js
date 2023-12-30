@@ -29,10 +29,10 @@ async function main() {
 
     await prisma.music.create({
         data: {
-            title: 'Duplate Riddim 3 instrumental 2k16',
-            artist: 'Bcr Lrts',
+            title: '36002836_DOYEN_ROMAIN_REAPER_18_TnB-ESJACKANC',
+            artist: 'DOYEN ROMAIN',
             image: '',
-            url: '../music/[ Dancehall ] Duplate Riddim 3 Instrumental 2k16 ( By Bcr Lrts ).mp3',
+            url: '../music/36002836_DOYEN_ROMAIN_REAPER_18_TnB-ESJACKANC.mp3',
             duration: 0,
             createdAt: new Date(),
             updatedAt: new Date(),
