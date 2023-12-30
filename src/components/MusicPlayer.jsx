@@ -124,6 +124,7 @@ const MusicPlayer = () => {
                         <i className='fas fa-forward' onClick={handleNextSong}></i>
                         {
                             <input
+                                className="voulme-control"
                                 type="range"
                                 min={0}
                                 max={1}

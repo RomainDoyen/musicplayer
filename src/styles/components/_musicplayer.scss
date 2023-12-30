@@ -53,9 +53,15 @@
 }
 
 .music-border, .control-border {
-    border: 1px solid globals.$music-border_control-border_border;
+    // border: 1px solid globals.$music-border_control-border_border;
     border-radius: 10px;
-    background-color: globals.$music-border_control-border_background-color;
+    // background-color: globals.$music-border_control-border_background-color;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
     margin: 10px;
     padding: 20px;
     width: 700px;
@@ -107,6 +113,6 @@
     color: globals.$music-control-color-i-hover;
 }
 
-.music-control input[type="range"] {
-    background-color: transparent;
+.voulme-control {
+    accent-color: globals.$music-control-color;
 }
